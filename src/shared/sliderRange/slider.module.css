@@ -1,0 +1,17 @@
+.slider-range {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .slider-track {
+    position: relative;
+  }
+  
+  .slider-handle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
