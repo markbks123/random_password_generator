@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PasswordStrengthProps } from "./home.types";
+import { PasswordStrengthProps, UseHomePageProps } from "./home.types";
 
 export const useHomePage = () => {
   const [password, setPassword] = useState<string>("");
@@ -73,5 +73,5 @@ export const useHomePage = () => {
     }
   };
 
-  return { generatePassword, evaluatePasswordStrength, setStateInclude,password,includeUppercase,includeLowercase,includeNumbers,includeSymbols };
+  return { generatePassword, evaluatePasswordStrength, setStateInclude, setpasswordLength,password,includeUppercase,includeLowercase,includeNumbers,includeSymbols };
 };
