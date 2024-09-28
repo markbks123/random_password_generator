@@ -11,7 +11,7 @@ const SliderRange: React.FC<SliderRangeProps> = ({
   barHeight = 10,
   barColor = "#ccc",
   handleSize = 20,
-  handleColor = "#007bff",
+  handleColor = "blue",
   handleShape = "circle",
   handleText = "values",
   onValuesChange
@@ -46,6 +46,7 @@ const SliderRange: React.FC<SliderRangeProps> = ({
             height: handleSize,
             borderRadius: handleShape === "circle" ? "50%" : "0",
             backgroundColor: handleColor,
+         
           }}
         />
       </div>

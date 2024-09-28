@@ -1,33 +1,79 @@
 .container {
-    width: 100%;
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 24px;
-    border-style: solid;
-
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
 }
 
 .slice {
-    width: 100%;
-    height: 20vh;
+  width: 100%;
+  height: 20vh;
+}
+
+.switch_include {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  padding: 10px;
+  gap: 24px;
+}
+
+.switch_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.characters_container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 24px;
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+}
+
+.buttons *,
+.buttons *:before,
+.buttons *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 
-.switch_include{
-    display: flex;
-    justify-content: space-between;
-    display: flex;
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
-    padding: 10px; 
-    gap: 24px;
-
+.buttons {
+  margin-top: 50px;
+  text-align: center;
+  border-radius: 30px;
+  background-color: #0505a9;
 }
 
+.blob_btn {
+  z-index: 1;
+  position: relative;
+  padding: 20px 46px;
+  margin-bottom: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #0505a9;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #0505a9;
+  outline: none;
+  border: 1px solid;
+  transition: color 0.5s;
+  cursor: pointer;
+  border-radius: 30px;
+  color: white;;
 
+  
+}
 
 @media screen and (max-width: 767px) {
 }
