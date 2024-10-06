@@ -9,6 +9,9 @@
   padding: 10px;
   font-size: medium;
   text-align: center;
+  border-radius: 16px;
+  border: solid 1px #eaeaea;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
 }
 
 .input_container {
@@ -19,8 +22,8 @@
 
 .copy_icon {
   position: absolute;
-  top: 70%;
-  right: 10px;
+  top: 50%;
+  right: 20px;
   transform: translateY(-50%);
   font-size: 20px;
 

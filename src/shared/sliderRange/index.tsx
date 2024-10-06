@@ -14,21 +14,18 @@ const SliderRange: React.FC<SliderRangeProps> = ({
   handleColor = "blue",
   handleShape = "circle",
   handleText = "values",
-  onValuesChange
-
+  onValuesChange,
 }) => {
   const { values, handleChange, sliderRef } = useSlider({
     min,
     max,
     step,
-    onValuesChange
+    onValuesChange,
   });
 
   return (
     <div className={styles.slider_range}>
-      <p>
-        {handleText}
-      </p>
+      <h1>{handleText}</h1>
       <div
         ref={sliderRef}
         className={styles.slider_track}
@@ -46,7 +43,6 @@ const SliderRange: React.FC<SliderRangeProps> = ({
             height: handleSize,
             borderRadius: handleShape === "circle" ? "50%" : "0",
             backgroundColor: handleColor,
-         
           }}
         />
       </div>

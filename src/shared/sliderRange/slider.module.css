@@ -6,7 +6,10 @@
   gap: 40px;
   
 }
-
+.slider_range h1 {
+    font-size: 16px;
+    font-weight: bold;
+}
 .slider_track {
   position: relative;
   width: 300px;
@@ -30,16 +33,21 @@
 .slider_track_text_value {
   width: 50px;
   height: 50px;
+  border-style: solid;
+   align-content: center;
+   border-radius: 16px;
+   border: solid 1px #eaeaea;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+   border-color: #f0f2f5;
    text-align: center;
-   border-radius: 10px;
-   border-style: solid;
    align-content: center;
    border-color: #ccc;
 }
 
 .slider_track_text_value  > p{
    color: black;
+    text-align: center;
    font-size: 24px;
    margin: 0;
-  padding: 0;
+   padding: 0;
 }
