@@ -1,0 +1,32 @@
+
+.container {
+    @apply flex justify-end items-center gap-4;
+  }
+  .container > p {
+    @apply text-base font-normal;
+  }
+.container> p:first-child {
+    color:#64748b
+}
+
+.container > div > p {
+    color: white;
+    width: fit-content;
+    height: fit-content;
+    @apply rounded-3xl py-1 px-4;
+  }
+.container > .green > p {
+    background-color: #34d399;
+  }
+  
+  .container > .yellow > p {
+    background-color: #f9bd23;
+  }
+  
+  .container > .red > p {
+    background-color: #ef4444;
+  }
+  
+  .container> .grey >p {
+    background-color: #A7B0BF;
+  }

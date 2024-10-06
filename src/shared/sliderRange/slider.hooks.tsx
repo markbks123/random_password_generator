@@ -1,9 +1,9 @@
-import { useState, useRef, useEffect } from 'react';
-import { SliderRangeProps } from './slider.types';
+import React, { useState, useRef, useEffect } from "react";
+import { SliderRangeProps } from "./slider.types";
 
 export function useSlider(props: SliderRangeProps) {
-  const { min = 0, max = 100, step = 1, onChange = () => {} } = props;
-  const [values, setValues] = useState([min, max]);
+  const { min = 0, max = 50, step = 1 ,onValuesChange =()=>{} } = props;
+  const [values, setValues] = useState([max,min]);
   const sliderRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
 
@@ -15,58 +15,55 @@ export function useSlider(props: SliderRangeProps) {
       isDragging.current = true;
 
       const sliderRect = slider.getBoundingClientRect();
-      const sliderWidth = slider.offsetWidth;
+      const sliderWidth = sliderRect.width;
       const sliderOffsetLeft = sliderRect.left;
-
       const mouseX = event.clientX - sliderOffsetLeft;
-      const sliderValue = Math.round((mouseX / sliderWidth) * (max - min) + min);
+      const percentage = mouseX / sliderWidth;
 
-      if (event.shiftKey) {
-        // Handle range selection
-        const currentValues = [...values];
-        currentValues[0] = sliderValue;
-        setValues(currentValues);
-      } else {
-        // Handle single value selection
-        setValues([sliderValue]);
-      }
+      // Calculate sliderValue
+      const calculatedValue = Math.round(percentage * (max - min) + min);
+      const sliderValue = Math.min(Math.max(calculatedValue, min), max);
+
+      setValues([sliderValue]);
     };
 
     const handleMouseMove = (event: MouseEvent) => {
       if (!isDragging.current) return;
 
       const sliderRect = slider.getBoundingClientRect();
-      const sliderWidth = slider.offsetWidth;
+      const sliderWidth = sliderRect.width;
       const sliderOffsetLeft = sliderRect.left;
-
       const mouseX = event.clientX - sliderOffsetLeft;
-      const sliderValue = Math.round((mouseX / sliderWidth) * (max - min) + min);
-
-      if (event.shiftKey) {
-        // Handle range selection
-        const currentValues = [...values];
-        currentValues[1] = sliderValue;
-        setValues(currentValues);
-      } else {
-        // Handle single value selection
-        setValues([sliderValue]);
-      }
+      const percentage = mouseX / sliderWidth;
+    
+      // คำนวณค่า slider และตรวจสอบขอบเขต
+      const calculatedValue = Math.round(percentage * (max - min) + min);
+      const sliderValue = Math.min(Math.max(calculatedValue, min), max); // จำกัดค่าให้อยู่ในช่วง min ถึง max
+    
+      setValues([sliderValue]);
     };
 
     const handleMouseUp = () => {
       isDragging.current = false;
     };
 
-    slider.addEventListener('mousedown', handleMouseDown);
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
+    slider.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
 
     return () => {
-      slider.removeEventListener('mousedown', handleMouseDown);
-      document.addEventListener('mousemove', handleMouseMove);
-      document.addEventListener('mouseup', handleMouseUp);
+      slider.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
     };
-  }, [min, max, step, onChange]);
+  }, [min, max, step]);
+  
+   // Call the onValuesChange prop with the current values
+   useEffect(() => {
+    if (onValuesChange) {
+      onValuesChange(values);
+    }
+  }, [values, onValuesChange]);
 
-  return { values, handleChange: setValues };
+  return { values, handleChange: setValues, sliderRef };
 }
