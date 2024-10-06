@@ -3,7 +3,7 @@
 }
 
 .container main {
-    @apply w-full flex;
+    @apply w-full flex justify-center;
 }
 
 .container main>.content {
