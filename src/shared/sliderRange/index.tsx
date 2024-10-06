@@ -5,7 +5,7 @@ import { SliderRangeProps } from "./slider.types";
 
 const SliderRange: React.FC<SliderRangeProps> = ({
   min = 0,
-  max = 100,
+  max = 30,
   step = 1,
   barWidth = 300,
   barHeight = 10,

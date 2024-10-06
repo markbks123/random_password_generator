@@ -38,6 +38,13 @@
   justify-content: center; /* Center items horizontally */
 }
 
+
+.w-30 {
+  width: calc(100% / 3 - 2rem / 3) !important;
+}
+
+
+
 .buttons *,
 .buttons *:before,
 .buttons *:after {

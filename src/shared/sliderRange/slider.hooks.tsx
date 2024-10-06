@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { SliderRangeProps } from "./slider.types";
 
 export function useSlider(props: SliderRangeProps) {
-  const { min = 0, max = 100, step = 1 ,onValuesChange =()=>{} } = props;
+  const { min = 0, max = 50, step = 1 ,onValuesChange =()=>{} } = props;
   const [values, setValues] = useState([max,min]);
   const sliderRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
