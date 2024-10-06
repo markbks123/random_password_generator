@@ -25,7 +25,7 @@ const SliderRange: React.FC<SliderRangeProps> = ({
 
   return (
     <div className={styles.slider_range}>
-      <h1>{handleText}</h1>
+      S<h1>{handleText}</h1>
       <div
         ref={sliderRef}
         className={styles.slider_track}
